@@ -29,11 +29,7 @@ export function ContactForm({ onSubmit }) {
   const handleSubmit = evt => {
     evt.preventDefault();
 
-    const newContact = {
-      id: nanoid(),
-      name, 
-      number,
-    };
+    const newContact = { id: nanoid(), name, number, };
     onSubmit( newContact );
     setName('');
     setNumber('');
@@ -65,7 +61,7 @@ export function ContactForm({ onSubmit }) {
             value={number}
             onChange={handleChange}
           />
-          <Span> Number</Span>
+          <Span>Number</Span>
         </Label>
         <Button type="submit">Add contact</Button>
       </Form>
