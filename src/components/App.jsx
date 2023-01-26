@@ -17,18 +17,7 @@ export function App() {
   ]});
   const [filter, setFilter] = useState(''); 
  
- useEffect(() => {
-   const savedContacts = localStorage.getItem('contacts');
-    if (savedContacts !== null) {
-      const parsedContacts =JSON.parse(savedContacts);
-      setContacts(parsedContacts);
-    } else {
-      setContacts(initialContacts);
-    }
- }, []);
- 
   useEffect(() => {
-  if (contacts.length === 0) return;
     localStorage.setItem('contacts', JSON.stringify(contacts));    
   }, [contacts]);
   
