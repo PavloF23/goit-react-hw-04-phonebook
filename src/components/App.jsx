@@ -16,9 +16,19 @@ export function App() {
     {id: 'id-4', name: 'Annie Copeland', number: '227-91-26'},
   ]});
   const [filter, setFilter] = useState(''); 
-      
+ 
+ useEffect(() => {
+   const savedContacts = localStorage.getItem('contacts');
+    if (savedContacts !== null) {
+      const parsedContacts =JSON.parse(savedContacts);
+      setContacts(parsedContacts);
+    } else {
+      setContacts(initialContacts);
+    }
+ }, []);
+ 
   useEffect(() => {
-    localStorage.getItem('contacts', JSON.stringify(contacts));    
+    localStorage.setItem('contacts', JSON.stringify(contacts));    
   }, [contacts]);
   
 const addContact = data => {
